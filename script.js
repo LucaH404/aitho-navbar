@@ -1,39 +1,35 @@
-let waitHide = () => {
-  return new Promise((resolve, reject) => {
-    $(document).ready(function () {
-      $("#bell").on("click", function () {
-        $(this).hide();
-        setTimeout(() => resolve('vanished'), 3000);
-      });
+async function waitHide() {
+  try{
+    alert('you clicked the english alert ;)')
+    const response = 'english'
+    setTimeout(() => console.log(response), 3000);
+  }
+  catch (err){
+    console.log('Request Failed' + err)
+  }
+}
+
+ $(function () {
+  $("#bell").on("click", function () {
+       waitHide();
     });
+});
+async function waitAlert() {
+  try{
+    await alert("hai premuto il pulsante")
+    const responseAlert = 'boo';
+    setTimeout(() => console.log(responseAlert), 3000);
+  }
+  catch (err) {
+    console.log('Request Failed', err); 
     
-  });
-};
+  }
+}
 
-waitHide()
-  .then((result) => {
-    console.log(result);
-  })
-  .catch((error) => {
-    console.log("error: " + error);
-  });
-
-let waitAlert = () => {
-  return new Promise((resolve, reject) => {
-    $(document).ready(function () {
+$(function () {
       $("#mark").on("click", function () {
-        alert("hai premuto il pulsante");
-        setTimeout(() => resolve('boo'), 3000);
+         waitAlert();
       });
     });
-    
-  });
-};
 
-waitAlert()
-  .then((result) => {
-    console.log(result);
-  })
-  .catch((error) => {
-    console.log("error: " + error);
-  });
+
