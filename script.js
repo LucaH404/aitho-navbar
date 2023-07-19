@@ -27,9 +27,14 @@ async function waitAlert() {
 }
 
 $(function () {
-      $("#mark").on("click", function () {
-         waitAlert();
-      });
+    $("#mark").on("click", function () {
+        waitAlert();
     });
+});
 
-
+$(function () {
+  $("#darkmode").on("click", function () {
+      $("#wrapper").toggleClass("wrapper")
+    
+  });
+});

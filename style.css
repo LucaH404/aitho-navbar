@@ -50,3 +50,7 @@
     --bs-btn-disabled-bg: #CED4DA !important;
     --bs-btn-disabled-border-color: #CED4DA !important;
 }
+.wrapper{
+    background-color: black;
+    min-height: 879px;
+}
