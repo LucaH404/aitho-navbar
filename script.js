@@ -33,8 +33,19 @@ $(function () {
 });
 
 $(function () {
+  function toggleImg() {
+    var currentSrc = $("img.nav-icon").attr("src");
+
+    currentSrc === "./icon/aitho-icon.png" ? $("img.nav-icon").attr("src", "./icon/aitho-icon-white.png") : $("img.nav-icon").attr("src", "./icon/aitho-icon.png")
+  }
   $("#darkmode").on("click", function () {
-      $("#wrapper").toggleClass("wrapper")
-    
+      $("#wrapper").toggleClass("wrapper"),
+      $("a.nav-link").toggleClass("nav-link-dark")
+      $("#navbar").toggleClass("darkmode")
+      $("#bell").toggleClass("bell-dark")
+      const src = "./icon/aitho-icon-white.png"
+      $("img.nav-icon").attr("src", src);
+      $("#darkmode").click(toggleImg);
+      
   });
 });
