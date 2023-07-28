@@ -39,31 +39,41 @@ $(function () {
   }
   $("#darkmode").on("click", function () {
     $("#wrapper").toggleClass("wrapper"),
-      $("a.nav-link").toggleClass("nav-link-dark");
+    $("a.nav-link").toggleClass("nav-link-dark");
     $("#navbar").toggleClass("darkmode");
     $("#bell").toggleClass("bell-dark");
     const src = "./icon/aitho-icon-white.png";
     $("img.nav-icon").attr("src", src);
     $("#darkmode").click(toggleImg);
+    $("div.cell").toggleClass("cell-dark");
+    $("#comment-section").toggleClass("dark-table");
   });
 });
 
+let isCalled = false
 let limit = 10;
+let skip = 0
 async function fetchAPI() {
   try {
-    const url = `https://dummyjson.com/comments?&limit=${limit}`;
+    const url = `https://dummyjson.com/comments?skip=${skip}&limit=${limit}`;
     const response = await fetch(url);
     const data = await response.json();
     const comments = data.comments;
 
     const commentArr = comments.map((comment) => {
-      return `<div class="comment">
-                <span class="username">${comment.user.username}</span>
-                <p class="comment-text">${comment.body}</p>
-              </div>`;
+      return `
+        <tbody>
+          <tr>
+            <th scope="row">${comment.id}</th>
+            <td>${comment.user.username}</td>
+            <td>${comment.body}</td>
+          </tr>
+        </tbody>
+      `;
     });
+
     const commentsAsString = commentArr.join("");
-    $("#comment-section").html(commentsAsString);
+    $("#comment-section").append(commentsAsString);
   } catch (err) {
     console.log("Request Failed", err);
   }
@@ -73,18 +83,28 @@ async function fetchAPI() {
 
 $(function () {
   $("#comment-event").on("click", function () {
-    $("#comment-section").empty();
-    // skip = 0;
-    fetchAPI();
+    if (isCalled === false) {
+      fetchAPI();
+      isCalled = true
+    }
+    else{
+      return null
+    }
     $("#comment-section").show();
+    $("div.comment-box").show();
     setTimeout(() => $("#more").show(), 240);
   });
 });
+
 const showMore = () => {
-  limit += 10;
+  skip += limit
+  limit = 10;
   fetchAPI();
+  console.log
 };
+
 $(function () {
+  $("div.comment-box").hide();
   $("#comment-section").hide();
   $("#more").hide();
   $("#more").on("click", function () {

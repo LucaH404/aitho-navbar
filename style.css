@@ -1,3 +1,7 @@
+html, body {
+    margin:0px;
+    height:100%;
+}
 .space-between{
     justify-content: space-between !important;
 }
@@ -7,6 +11,10 @@
     justify-content: space-between !important;
 }
 .navbar{
+    z-index: 1;
+    background-color: white;
+    width: 100%;
+    position: fixed;
     display: flex;
     flex-wrap: nowrap;
     border-bottom:1px solid rgba(128, 128, 128, 0.253) ;
@@ -52,6 +60,7 @@
     cursor: pointer;
 }
 .btn-mark{
+    z-index: 1;
     height: 42px;
     bottom: 50px;
     right: 30px;
@@ -73,10 +82,10 @@
     --bs-btn-disabled-border-color: #CED4DA !important;
 }
 .wrapper{
-    background-color: black;
-    min-height: 876px;
+    background-color: black !important;
+    min-height: 100%;
     color: white !important;
-    border-color: #fff;
+    border-color: #fff !important;
 }
 .darkmode{
     background-color: black;
@@ -114,7 +123,28 @@
     flex-basis: 0;
     flex-grow: 0.6;
 }
+.comment-box{
+    position: relative;
+    padding-top: 6vh;
+    width: 100%; 
+    margin: 0;
+}
 .comment-section{
     text-align: center;
-    border: 1px solid rgba(0, 0, 0, 0.171);
+}
+.cell{
+    border: 1px solid rgba(153, 153, 153, 0.171)
+}
+.cell-dark{
+    border-color:gray !important;
+}
+.info-cells{
+    width: 25.3%;
+}
+.info{
+    font-weight: 700;
+}
+.dark-table{
+    --bs-table-color: white !important;
+    --bs-table-bg: rgb(37, 37, 37) !important;
 }
