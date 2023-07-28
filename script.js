@@ -50,9 +50,10 @@ $(function () {
   });
 });
 
-let isCalled = false
+let isCalled = false;
 let limit = 10;
-let skip = 0
+let skip = 0; 
+let count = 0
 async function fetchAPI() {
   try {
     const url = `https://dummyjson.com/comments?skip=${skip}&limit=${limit}`;
@@ -77,14 +78,18 @@ async function fetchAPI() {
   } catch (err) {
     console.log("Request Failed", err);
   }
-  console.log(limit);
 }
 
+const incCount = () => {
+  return count++
+}
 
 $(function () {
   $("#comment-event").on("click", function () {
     if (isCalled === false) {
       fetchAPI();
+      $("#counter").empty().append(`Lettura blocco: ${count}`);
+      $("#more").empty().append(`Leggi il prossimo blocco  (${count + 1})`)
       isCalled = true
     }
     else{
@@ -97,10 +102,10 @@ $(function () {
 });
 
 const showMore = () => {
-  skip += limit
+  skip += limit;
   limit = 10;
+  incCount();
   fetchAPI();
-  console.log
 };
 
 $(function () {
@@ -109,7 +114,7 @@ $(function () {
   $("#more").hide();
   $("#more").on("click", function () {
     showMore();
+    $("#counter").empty().append(`Lettura blocco: ${count}`);
+    $("#more").empty().append(`Leggi il prossimo blocco  (${count + 1})`)
   });
 });
-
-//sistemare la tabella 
