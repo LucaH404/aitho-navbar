@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="./build/index.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light p-0" id="navbar">
+        <img class="nav-icon" src="./icon/aitho-icon.png"/>
+
+        <div class="nav-wrapper w-100" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <div class="row w-100">
+                    <div class="p-0 col-xs-1 col-sm-1 col-md-2 col-lg-1 col-xl-1 col-xxl-1">
+                        <li class="nav-item active h5 p-0 m-0 w-100">
+                            <a class="nav-link p-0" href="#">Home</a>
+                        </li>
+                    </div>
+                    <div class="p-0 col-xs-1 col-sm-5 col-md-3 col-lg-2 col-xl-2 col-xxl-1">
+                        <li class="nav-item h5 m-0 p-0">
+                            <a class="nav-link" href="#">Dashboard</a>
+                        </li>
+                    </div>
+                    <div class="p-0 col-xs-1 col-sm-6 col-md-5 col-lg-4 col-xl-3 col-xxl-2">
+                        <li class="nav-item h5 m-0 p-0">
+                            <a class="nav-link course" id="comment-event">I miei corsi</a>
+                        </li>
+                    </div>
+                </div>
+            </ul>
+            <form class="d-flex my-2 my-lg-0">
+                <div class="form-check form-switch d-flex align-items-center">
+                    <input class="form-check-input m-1" type="checkbox" role="switch" id="darkmode">
+                    <label class="form-check-label text-center m-1" for="flexSwitchCheckDefault">Darkmode</label>
+                </div>
+                <a class="bell-props m-2" href="#" id="bell"><img src="./icon/bell.svg"/></a>
+            </form>
+        </div>
+    </nav>
+    <div id="wrapper">
+        <div>
+            <button class="btn btn-mark" id="mark"><img src="./icon/mark.png"/></button>
+        </div>
+        <div class="row comment-box">
+            <table class="table" id="comment-section">
+                <thead>
+                  <tr>
+                    <th scope="col">Post ID</th>
+                    <th scope="col">User</th>
+                    <th scope="col">Comment</th>
+                  </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="d-flex justify-content-center">
+            <p class="m-3" id="counter"></p>
+            <button class="btn btn-primary" id="more"></button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
+
