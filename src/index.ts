@@ -1,4 +1,3 @@
-// Add necessary typings
 interface Comment {
     id: number;
     user: {
@@ -7,7 +6,7 @@ interface Comment {
     body: string;
   }
   
-  // Convert waitHide and waitAlert functions to use promises instead of alerts
+
   function waitHide(): Promise<void> {
     return new Promise((resolve) => {
       alert("you clicked the english alert ;)");
@@ -30,7 +29,7 @@ interface Comment {
     });
   }
   
-  // TypeScript equivalent for the remaining code
+
   $(function () {
     $("#bell").on("click", async function () {
       await waitHide();

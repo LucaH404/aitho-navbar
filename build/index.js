@@ -8,7 +8,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-// Convert waitHide and waitAlert functions to use promises instead of alerts
 function waitHide() {
     return new Promise((resolve) => {
         alert("you clicked the english alert ;)");
@@ -29,7 +28,6 @@ function waitAlert() {
         }, 3000);
     });
 }
-// TypeScript equivalent for the remaining code
 $(function () {
     $("#bell").on("click", function () {
         return __awaiter(this, void 0, void 0, function* () {
