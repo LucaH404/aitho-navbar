@@ -2,12 +2,13 @@ import React, { useState, useEffect, useCallback } from 'react'
 import { Comment, User } from '../../models/commentType';
 import { DarkModeContext } from '../useDarkmode/DarkModeContext';
 import Navbar from '../Navbar/Navbar';
-
+import './Table.css'
 const Table = ( ) => {
     const [comments, setComments] = useState<Comment[]>([])
     const [limit, setLimitstate] = useState(10)
     const [count, setCount] = useState(0)
-    
+    const [show, setShow] = useState(false)
+
     useEffect(() => {
         fetchAPI();
       }, [limit]); 
@@ -23,9 +24,17 @@ const Table = ( ) => {
         console.log("Request Failed", err);
       }
     }
+    const hideBtn = useCallback(() => {
+        setShow(true); // Set show to "none" immediately
+        setTimeout(() => {
+          setShow(false); // After one second, set show back to "show"
+        }, 1000);
+      }, []);
     const handleInc = useCallback ((limit : number) => {
+        hideBtn();
         setLimitstate(limit + 10);
         setCount(count + 1)
+        console.log(show)
     }, [limit])
   return (
         <>
@@ -48,9 +57,9 @@ const Table = ( ) => {
                     </tbody>
                 </table>
             </div>
-            <div className="d-flex justify-content-center">
+            <div className="show">
                 <p className="m-3" id="counter">Lettura blocco {count}</p>
-                <button className="btn btn-primary" id="more" onClick={() => handleInc(limit)}>Leggi il prossimo blocco: {count + 1}</button>
+                <button disabled={show} className={`btn btn-primary ${show}`} id="more" onClick={() => handleInc(limit)}>Leggi il prossimo blocco: {count + 1}</button>
             </div>
         </>
   )

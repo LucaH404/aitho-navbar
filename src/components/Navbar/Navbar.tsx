@@ -32,7 +32,7 @@ const Navbar = () => {
                         <div className="row w-100">
                             <div className="p-0 col-xs-1 col-sm-1 col-md-2 col-lg-1 col-xl-1 col-xxl-1">
                                 <li className="nav-item active h5 p-0 m-0 w-100">
-                                    <Link to="/Home" className={`nav-link nav-link-${theme}`} p-0>Home</Link>
+                                    <Link to="/Home" className={`nav-link nav-link-${theme} p-0`} >Home</Link>
                                 </li>
                             </div>
                             <div className="p-0 col-xs-1 col-sm-5 col-md-3 col-lg-2 col-xl-2 col-xxl-1">
