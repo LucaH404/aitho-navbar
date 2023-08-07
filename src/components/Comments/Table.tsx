@@ -25,9 +25,9 @@ const Table = ( ) => {
       }
     }
     const hideBtn = useCallback(() => {
-        setShow(true); // Set show to "none" immediately
+        setShow(true);
         setTimeout(() => {
-          setShow(false); // After one second, set show back to "show"
+          setShow(false); 
         }, 1000);
       }, []);
     const handleInc = useCallback ((limit : number) => {
@@ -59,7 +59,7 @@ const Table = ( ) => {
             </div>
             <div className="show">
                 <p className="m-3" id="counter">Lettura blocco {count}</p>
-                <button disabled={show} className={`btn btn-primary ${show}`} id="more" onClick={() => handleInc(limit)}>Leggi il prossimo blocco: {count + 1}</button>
+                <button disabled={show} className={`btn btn-primary show`} id="more" onClick={() => handleInc(limit)}>Leggi il prossimo blocco: {count + 1}</button>
             </div>
         </>
   )
