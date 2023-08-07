@@ -5,7 +5,7 @@ import navIconDark from './../../icon/aitho-icon-white.png'
 import bell from './../../icon/bell-black.png'
 import mark from './../../icon/mark.png'
 import { Link, Route, Routes } from 'react-router-dom'
-import Table from '../Comments/Table'
+import TableAnt from '../Comments/TableLogic'
 import { DarkModeContext } from '../useDarkmode/DarkModeContext'
 const Navbar = () => {
     const [theme, setTheme] = useState<'light' | 'dark'>('light');
@@ -64,7 +64,7 @@ const Navbar = () => {
             <>
                 <Routes>
                     <Route path="/Home"/>
-                    <Route path="/comments" element={<Table/>} />
+                    <Route path="/comments" element={<TableAnt/>} />
                 </Routes>
             </>
         </>
